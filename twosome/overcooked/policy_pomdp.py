@@ -40,8 +40,8 @@ class LLMAgent(nn.Module):
         super().__init__()
 
         self.load_8bit = load_8bit
-        self.base_model = 'Neko-Institute-of-Science/LLaMA-7B-HF'
-        # self.base_model = 'NousResearch/Llama-2-7b-chat-hf'
+        # self.base_model = 'Neko-Institute-of-Science/LLaMA-7B-HF'
+        self.base_model = 'NousResearch/Llama-2-7b-chat-hf'
         self.lora_r  = 8
         self.lora_alpha = 16
         self.lora_dropout = 0
@@ -91,8 +91,8 @@ class LLMAgent(nn.Module):
             torch_dtype=torch.float16,
             load_in_8bit=self.load_8bit,
             device_map="auto",
-            # cache_dir=os.path.join(root, 'weights/llama2')
-            cache_dir=os.path.join(root, 'weights/llama')
+            cache_dir=os.path.join(root, 'weights/llama2')
+            # cache_dir=os.path.join(root, 'weights/llama')
             #cache_dir='weights/llama'
         )
 
